@@ -38,8 +38,13 @@ const CAMPAIGN_SUFFIXES = [
   "Exclusive",
 ];
 
-const STATUSES: CampaignStatus[] = ["Active", "Paused", "Completed"];
-const CATEGORIES: CampaignCategory[] = ["Social", "Search", "Display", "Email"];
+export const STATUSES: CampaignStatus[] = ["active", "paused", "completed"];
+export const CATEGORIES: CampaignCategory[] = [
+  "Social",
+  "Search",
+  "Display",
+  "Email",
+];
 
 // Generate a random number between min and max
 function randomBetween(min: number, max: number): number {
@@ -66,7 +71,7 @@ export function generateCampaign(index: number): Campaign {
   const roi = ((revenue - spent) / spent) * 100;
 
   return {
-    id: `camp-${index + 1}`,
+    id: uuidv4(),
     name: generateCampaignName(index),
     status: randomElement(STATUSES),
     category: randomElement(CATEGORIES),

@@ -1,4 +1,5 @@
 import LiveEventFeed from "@/components/LiveEventFeed";
+import CampaignTable from "@/components/CampaingTable";
 
 export default function Home() {
   return (
@@ -11,35 +12,9 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className=" container mx-auto my-7">
-        <LiveEventFeed
-          events={[
-            {
-              id: 1,
-              type: "Click",
-              timestamp: new Date(),
-              campaignName: "Campaign 1",
-            },
-            {
-              id: 2,
-              type: "Conversion",
-              timestamp: new Date(),
-              campaignName: "Campaign 2",
-            },
-            {
-              id: 3,
-              type: "Fraud Alert",
-              timestamp: new Date(),
-              campaignName: "Campaign 3",
-            },
-            {
-              id: 4,
-              type: "Click",
-              timestamp: new Date(),
-              campaignName: "Campaign 4",
-            },
-          ]}
-        />
+      <section className=" container mx-auto my-7 flex flex-col gap-8">
+        <LiveEventFeed />
+        <CampaignTable />
       </section>
     </main>
   );
