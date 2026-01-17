@@ -5,6 +5,8 @@ import SortHeader from "./SortTableHeader";
 import { useCampaignStore } from "@/store/useCampaignStore";
 import formatCurrency from "@/lib/formatCurrency";
 import StatusBadge from "./StatusBadge";
+import { CampaignCategory, CampaignStatus } from "@/lib/types";
+import { CATEGORIES, STATUSES } from "@/lib/mockData";
 
 export type SortKey =
   | "name"
@@ -17,7 +19,7 @@ export type SortKey =
 export type SortDirection = "asc" | "desc";
 
 export default function CampaignTable() {
-  const { getFilteredCampaigns } = useCampaignStore();
+  const { filters, setFilter, getFilteredCampaigns } = useCampaignStore();
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
   const SortKeys: SortKey[] = [
@@ -30,6 +32,9 @@ export default function CampaignTable() {
     "roi",
   ];
   const filteredCampaigns = getFilteredCampaigns();
+
+  // Sorts the campaigns based on the current sort key and direction.
+  // Memoize to avoid re-sorting on every render
   const sortedCampaigns = useMemo(() => {
     return [...filteredCampaigns].sort((a, b) => {
       const aVal = a[sortKey];
@@ -56,6 +61,42 @@ export default function CampaignTable() {
     <div className="live-event-feed rounded-[12px] border border-amber-900 p-6 shadow bg-white">
       <div className="flex justify-between mb-4">
         <h3 className="text-2xl font-bold">Campaign Table</h3>
+
+        <div className="flex gap-2">
+          <select
+            name="status"
+            value={filters.status || ""}
+            onChange={(e) =>
+              setFilter("status", (e.target.value as CampaignStatus) || null)
+            }
+            className="border rounded-lg px-3 py-2"
+          >
+            <option value="">All Statuses</option>
+            {STATUSES.map((s) => (
+              <option key={s} value={s}>
+                {s.charAt(0).toUpperCase() + s.slice(1)}
+              </option>
+            ))}
+          </select>
+          <select
+            name="category"
+            value={filters.category || ""}
+            onChange={(e) =>
+              setFilter(
+                "category",
+                (e.target.value as CampaignCategory) || null,
+              )
+            }
+            className="border rounded-lg px-3 py-2"
+          >
+            <option value="">All Categories</option>
+            {CATEGORIES.map((s) => (
+              <option key={s} value={s}>
+                {s.charAt(0).toUpperCase() + s.slice(1)}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div>
         <div className="overflow-x-auto">

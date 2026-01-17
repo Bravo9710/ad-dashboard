@@ -49,6 +49,7 @@ export const useCampaignStore = create<CampaignStore>((set, get) => ({
     }));
   },
 
+  // Filters the campaigns based on the current filters.
   getFilteredCampaigns: () => {
     const { campaigns, filters } = get();
     return campaigns.filter((campaign: Campaign) => {
