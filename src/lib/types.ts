@@ -14,7 +14,7 @@ export interface Campaign {
 }
 
 export interface Event {
-  id: string;
+  id: string | number;
   timestamp: Date;
   campaignName: string;
   type: EventType;
