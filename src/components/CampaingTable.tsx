@@ -100,7 +100,7 @@ export default function CampaignTable() {
       </div>
       <div>
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[800px] overflow-x-auto">
             <thead className="bg-gray-50 border-b">
               <tr>
                 {SortKeys.map((key) => (

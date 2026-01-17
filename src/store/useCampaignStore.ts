@@ -25,7 +25,7 @@ interface CampaignStore {
 const MAX_EVENTS = 30;
 
 export const useCampaignStore = create<CampaignStore>((set, get) => ({
-  campaigns: generateCampaigns(50),
+  campaigns: generateCampaigns(60),
   events: [],
   isPaused: false,
   filters: { status: null, category: null },
