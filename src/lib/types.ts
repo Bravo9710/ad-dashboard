@@ -1,4 +1,4 @@
-export type CampaignStatus = "Active" | "Paused" | "Completed";
+export type CampaignStatus = "active" | "paused" | "completed";
 export type CampaignCategory = "Social" | "Search" | "Display" | "Email";
 export type EventType = "Click" | "Conversion" | "Fraud Alert";
 
@@ -18,4 +18,9 @@ export interface Event {
   timestamp: Date;
   campaignName: string;
   type: EventType;
+}
+
+export interface Filters {
+  status: CampaignStatus | null;
+  category: CampaignCategory | null;
 }

@@ -38,7 +38,7 @@ const CAMPAIGN_SUFFIXES = [
   "Exclusive",
 ];
 
-const STATUSES: CampaignStatus[] = ["Active", "Paused", "Completed"];
+const STATUSES: CampaignStatus[] = ["active", "paused", "completed"];
 const CATEGORIES: CampaignCategory[] = ["Social", "Search", "Display", "Email"];
 
 // Generate a random number between min and max
