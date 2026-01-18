@@ -31,7 +31,7 @@ export default function LiveEventFeed() {
         <Button text={isPaused ? "Resume" : "Pause"} onClick={togglePause} />
       </div>
 
-      <div className="flex flex-col gap-3 h-full max-h-[400px] overflow-y-auto scrollbar-thin">
+      <div className="flex flex-col gap-3 h-full max-h-[334px] overflow-y-auto scrollbar-thin">
         {events.length === 0 ? (
           <p className="text-gray-700 text-center py-[15px]">
             {isPaused
