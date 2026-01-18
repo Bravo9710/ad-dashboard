@@ -14,7 +14,7 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="container mx-auto m-4 flex flex-col gap-8 px-4 py-6">
+      <section className="container mx-auto  flex flex-col gap-8  py-6">
         <div className="grid lg:grid-cols-2 gap-4">
           <Chart />
           <LiveEventFeed />
