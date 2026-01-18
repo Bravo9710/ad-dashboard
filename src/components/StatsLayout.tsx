@@ -37,22 +37,22 @@ export default function StatsLayout() {
       <StatBox
         label="Total Campaigns"
         value={stats.count}
-        subtext={hasFilters ? "Filtered" : "All Campaigns"}
+        subtext={hasFilters ? `${filters.category}` : "All Campaigns"}
       />
       <StatBox
         label="Total Events"
         value={formatCurrency(stats.totalSpend)}
-        subtext={hasFilters ? "Filtered" : "All Campaigns"}
+        subtext={hasFilters ? `${filters.category}` : "All Campaigns"}
       />
       <StatBox
         label="Total Revenue"
         value={formatCurrency(stats.totalRevenue)}
-        subtext={hasFilters ? "Filtered" : "All Campaigns"}
+        subtext={hasFilters ? `${filters.category}` : "All Campaigns"}
       />
       <StatBox
         label="Total ROI"
         value={`${stats.avgRoi >= 0 ? "+" : ""}${stats.avgRoi.toFixed(1)}%`}
-        subtext={hasFilters ? "Filtered" : "All Campaigns"}
+        subtext={hasFilters ? `${filters.category}` : "All Campaigns"}
       />
     </div>
   );

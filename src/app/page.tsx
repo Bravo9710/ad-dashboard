@@ -1,6 +1,7 @@
 import LiveEventFeed from "@/components/LiveEventFeed";
 import CampaignTable from "@/components/CampaingTable";
 import StatsLayout from "@/components/StatsLayout";
+import Chart from "@/components/Chart";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
 
       <section className="container mx-auto m-4 flex flex-col gap-8 px-4 py-6">
         <div className="grid lg:grid-cols-2 gap-4">
-          <div></div>
+          <Chart />
           <LiveEventFeed />
         </div>
         <StatsLayout />
